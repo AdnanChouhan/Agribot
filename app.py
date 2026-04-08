@@ -6,7 +6,7 @@ from dotenv import load_dotenv # pyright: ignore[reportMissingImports]
 
 load_dotenv()
 
-api_key = st.secrets["API_KEY"]
+API_KEY = st.secrets.get("API_KEY")
 DEFAULT_MODEL = "gemini-1.5-flash"
 
 st.set_page_config(page_title="AgriBot", page_icon="🌱", layout="wide", initial_sidebar_state="collapsed")
@@ -25,7 +25,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 if not API_KEY:
-    st.error("⚠️ System Error: GEMINI_API_KEY missing.")
+    st.error("⚠️ API Key missing. Please configure it in Secrets.")
     st.stop()
 
 genai.configure(api_key=API_KEY)
