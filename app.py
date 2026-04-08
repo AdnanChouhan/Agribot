@@ -6,7 +6,7 @@ from dotenv import load_dotenv # pyright: ignore[reportMissingImports]
 
 load_dotenv()
 
-API_KEY = "YOUR API KEY HERE"
+api_key = st.secrets["API_KEY"]
 DEFAULT_MODEL = "gemini-1.5-flash"
 
 st.set_page_config(page_title="AgriBot", page_icon="🌱", layout="wide", initial_sidebar_state="collapsed")
